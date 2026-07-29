@@ -1,11 +1,11 @@
 #pragma once
 
 #include "config.h"
-#include "gridConfig.cuh"
 
 struct moments
 {
-    varType *mom;
+    varType *momA;
+    varType *momB;
     varType *mom_host;
 };
 
