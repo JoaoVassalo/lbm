@@ -2,8 +2,7 @@
 
 __global__ void initDomain(varType *momA, varType *momB)
 {
-    int x = blockDim.x * blockIdx.x + threadIdx.x;
-    int y = blockDim.y * blockIdx.y + threadIdx.y;
+    auto [x, y] = coordinates();
 
     if (x >= Geometry::NX || y >= Geometry::NY)
         return;

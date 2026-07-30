@@ -3,11 +3,23 @@
 #include "../config/gridConfig.cuh"
 #include "../config/stencilConfig.cuh"
 
-__device__ __forceinline__ int gridId()
+struct coord
+{
+    int x;
+    int y;
+};
+
+__device__ __forceinline__ coord coordinates()
 {
     int x = blockDim.x * blockIdx.x + threadIdx.x;
     int y = blockDim.y * blockIdx.y + threadIdx.y;
 
+    return {x, y};
+}
+
+__device__ __forceinline__ int gridId()
+{
+    auto [x, y] = coordinates();
     return y * Geometry::NX + x;
 }
 
