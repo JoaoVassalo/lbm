@@ -9,5 +9,6 @@
 #include "../../core/indexing.cuh"
 
 #include "initDomain.cuh"
+#include "initGrid.cuh"
 
 __host__ void initialization(moments &sim, Grid2D &grid);
