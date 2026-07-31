@@ -3,6 +3,7 @@
 #include "config/momentConfig.cuh"
 
 #include "lbm/init/initialization.cuh"
+#include "lbm/simulation/simulation.cuh"
 
 int main()
 {
@@ -10,4 +11,6 @@ int main()
     moments sim;
 
     initialization(sim, grid);
+
+    simulation(sim, grid);
 }

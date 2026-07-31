@@ -6,7 +6,7 @@
 
 #include "../../core/indexing.cuh"
 
-#include "collision.cuh"
+#include "collision/collision.cuh"
 
 #include "streaming/fluid.cuh"
 #include "streaming/inlet.cuh"

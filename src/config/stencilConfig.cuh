@@ -1,6 +1,6 @@
 #pragma once
 
-#include <math.h>
+#include <numbers>
 
 #include "config.h"
 #include "gridConfig.cuh"
@@ -16,29 +16,29 @@ namespace D2Q9
     constexpr int momSize = Geometry::NX * Geometry::NY;
     constexpr int momByteSize = Geometry::NX * Geometry::NY * momNum * sizeof(varType);
 
-    const varType a_s = sqrtf(3);
-    constexpr varType a_s2 = 3.f;
-    constexpr varType a_s4 = 9.f;
-    constexpr varType inv_as2 = 1.f / a_s2;
+    constexpr varType a_s = static_cast<varType>(std::numbers::sqrt3_v<double>);
+    constexpr varType a_s2 = static_cast<varType>(3);
+    constexpr varType a_s4 = static_cast<varType>(9);
+    constexpr varType inv_as2 = static_cast<varType>(1.0 / a_s2);
 
-    __host__ __device__ __forceinline__ varType w(int i)
+    __host__ __device__ __forceinline__ float w(int i)
     {
         switch (i)
         {
         case 0:
-            return 4.f / 9.f;
+            return static_cast<varType>(4.0 / 9.0);
         case 1:
         case 2:
         case 3:
         case 4:
-            return 1.f / 9.f;
+            return static_cast<varType>(1.0 / 9.0);
         case 5:
         case 6:
         case 7:
         case 8:
-            return 1.f / 36.f;
+            return static_cast<varType>(1.0 / 36.0);
         default:
-            return 0.f;
+            return static_cast<varType>(0.0);
         }
     }
 
@@ -47,52 +47,52 @@ namespace D2Q9
         switch (i)
         {
         case 0:
-            return 0.f;
+            return static_cast<varType>(0);
         case 1:
-            return 1.f;
+            return static_cast<varType>(1);
         case 2:
-            return 0.f;
+            return static_cast<varType>(0);
         case 3:
-            return -1.f;
+            return static_cast<varType>(-1);
         case 4:
-            return 0.f;
+            return static_cast<varType>(0);
         case 5:
-            return 1.f;
+            return static_cast<varType>(1);
         case 6:
-            return -1.f;
+            return static_cast<varType>(-1);
         case 7:
-            return -1.f;
+            return static_cast<varType>(-1);
         case 8:
-            return 1.f;
+            return static_cast<varType>(1);
         default:
-            return 0.f;
+            return static_cast<varType>(0);
         }
     }
 
-    __host__ __device__ __forceinline__ varType cy(int i)
+    __host__ __device__ __forceinline__ float cy(int i)
     {
         switch (i)
         {
         case 0:
-            return 0.f;
+            return static_cast<varType>(0);
         case 1:
-            return 0.f;
+            return static_cast<varType>(0);
         case 2:
-            return 1.f;
+            return static_cast<varType>(1);
         case 3:
-            return 0.f;
+            return static_cast<varType>(0);
         case 4:
-            return -1.f;
+            return -static_cast<varType>(1);
         case 5:
-            return 1.f;
+            return static_cast<varType>(1);
         case 6:
-            return 1.f;
+            return static_cast<varType>(1);
         case 7:
-            return -1.f;
+            return -static_cast<varType>(1);
         case 8:
-            return -1.f;
+            return -static_cast<varType>(1);
         default:
-            return 0.f;
+            return static_cast<varType>(0);
         }
     }
 

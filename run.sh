@@ -16,12 +16,10 @@ $NVCC \
     -std=c++20 \
     -g -G \
     -rdc=true \
-    -I. \
-    -Iinclude \
-    ${SRC_DIR}/main.cu \
-    ${SRC_DIR}/lbm/init/*.cu \
+    -I${SRC_DIR} \
+    $(find ${SRC_DIR} -name "*.cu") \
     -o ${BUILD_DIR}/${BIN}
 
 echo "Executando..."
 
-${BUILD_DIR}/${BIN}
+./${BUILD_DIR}/${BIN}

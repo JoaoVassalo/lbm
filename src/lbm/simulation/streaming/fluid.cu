@@ -1,9 +1,7 @@
 #include "fluid.cuh"
 
-__device__ void fluid(varType *mom_in, varType *mom_out, int x, int y)
+__device__ void fluid(varType *mom_in, varType *mom_out, int x, int y, int index)
 {
-    int index = gridId(x, y);
-
     float rho = 0.f;
     float ux = 0.f;
     float uy = 0.f;
