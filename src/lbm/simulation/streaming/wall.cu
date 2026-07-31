@@ -24,9 +24,7 @@ __device__ void wallSouthwest(int x, int y, varType *mom_in, varType *mom_out, G
     // OUTRAS DIREÇÕES
     while (mask)
     {
-        int bit = __ffs(mask);
-
-        int i = bit + 1;
+        int i = __ffs(mask) + 1;
 
         indexFrom = fromId(x, y, i);
 
@@ -86,9 +84,7 @@ __device__ void wallSoutheast(int x, int y, varType *mom_in, varType *mom_out, G
     // OUTRAS DIREÇÕES
     while (mask)
     {
-        int bit = __ffs(mask);
-
-        int i = bit + 1;
+        int i = __ffs(mask) + 1;
 
         indexFrom = fromId(x, y, i);
 
@@ -148,9 +144,7 @@ __device__ void wallNorthwest(int x, int y, varType *mom_in, varType *mom_out, G
     // OUTRAS DIREÇÕES
     while (mask)
     {
-        int bit = __ffs(mask);
-
-        int i = bit + 1;
+        int i = __ffs(mask) + 1;
 
         indexFrom = fromId(x, y, i);
 
@@ -210,9 +204,7 @@ __device__ void wallNortheast(int x, int y, varType *mom_in, varType *mom_out, G
     // OUTRAS DIREÇÕES
     while (mask)
     {
-        int bit = __ffs(mask);
-
-        int i = bit + 1;
+        int i = __ffs(mask) + 1;
 
         indexFrom = fromId(x, y, i);
 
@@ -272,9 +264,7 @@ __device__ void wallSouth(int x, int y, varType *mom_in, varType *mom_out, Grid2
     // OUTRAS DIREÇÕES
     while (mask)
     {
-        int bit = __ffs(mask);
-
-        int i = bit + 1;
+        int i = __ffs(mask) + 1;
 
         indexFrom = fromId(x, y, i);
 
@@ -331,9 +321,7 @@ __device__ void wallNorth(int x, int y, varType *mom_in, varType *mom_out, Grid2
     // OUTRAS DIREÇÕES
     while (mask)
     {
-        int bit = __ffs(mask);
-
-        int i = bit + 1;
+        int i = __ffs(mask) + 1;
 
         indexFrom = fromId(x, y, i);
 
@@ -390,9 +378,7 @@ __device__ void wallWest(int x, int y, varType *mom_in, varType *mom_out, Grid2D
     // OUTRAS DIREÇÕES
     while (mask)
     {
-        int bit = __ffs(mask);
-
-        int i = bit + 1;
+        int i = __ffs(mask) + 1;
 
         indexFrom = fromId(x, y, i);
 
@@ -452,9 +438,7 @@ __device__ void wallEast(int x, int y, varType *mom_in, varType *mom_out, Grid2D
     // OUTRAS DIREÇÕES
     while (mask)
     {
-        int bit = __ffs(mask);
-
-        int i = bit + 1;
+        int i = __ffs(mask) + 1;
 
         indexFrom = fromId(x, y, i);
 

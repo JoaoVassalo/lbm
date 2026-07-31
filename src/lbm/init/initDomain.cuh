@@ -2,6 +2,7 @@
 
 #include "../../config/config.h"
 #include "../../config/momentConfig.cuh"
+#include "../../config/simulationConfig.cuh"
 #include "../../config/stencilConfig.cuh"
 
 #include "../../core/indexing.cuh"
