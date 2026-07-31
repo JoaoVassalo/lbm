@@ -1,14 +1,19 @@
 #include "wall.cuh"
 
-__device__ void wallSouthwest(int x, int y, varType *mom_in, varType *mom_out)
+__device__ void wallSouthwest(int x, int y, varType *mom_in, varType *mom_out, Grid2D grid)
 {
+    int index = gridId(x, y);
+
+    maskType mask = grid.mask[index];
+
     varType rhoI = static_cast<varType>(0);
     varType mxxI = static_cast<varType>(0);
     varType mxyI = static_cast<varType>(0);
     varType myyI = static_cast<varType>(0);
 
-    for (int i = 0; i < D2Q9::Q; i++)
+    while (mask)
     {
+        /* code */
     }
 }
 
