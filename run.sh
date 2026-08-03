@@ -2,11 +2,19 @@
 
 set -e
 
-NVCC=/usr/bin/nvcc
+NVCC=/usr/local/cuda-13.1/bin/nvcc
 
 SRC_DIR=src
 BUILD_DIR=build
 BIN=debug
+
+echo "Limpando..."
+
+# Remove o executável antigo
+rm -f ${BUILD_DIR}/${BIN}
+
+# Remove os arquivos VTK antigos
+rm -rf results/plot/vtk/*
 
 mkdir -p ${BUILD_DIR}
 

@@ -2,18 +2,18 @@
 
 __device__ void fluid(varType *mom_in, varType *mom_out, int x, int y, int index)
 {
-    float rho = 0.f;
-    float ux = 0.f;
-    float uy = 0.f;
-    float mxx = 0.f;
-    float mxy = 0.f;
-    float myy = 0.f;
+    varType rho = 0.f;
+    varType ux = 0.f;
+    varType uy = 0.f;
+    varType mxx = 0.f;
+    varType mxy = 0.f;
+    varType myy = 0.f;
 
 #pragma unroll
     for (int i = 0; i < D2Q9::Q; i++)
     {
         int indexFrom = fromId(x, y, i);
-        float fi = f(indexFrom, i, mom_in);
+        varType fi = f(indexFrom, i, mom_in);
 
         rho += fi;
 

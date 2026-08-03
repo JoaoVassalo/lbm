@@ -5,7 +5,7 @@ __host__ void step(size_t t, varType *mom_in, varType *mom_out, varType *mom_hos
     streamCollide<<<blockNumber, block>>>(mom_in, mom_out, grid);
 
     cudaDeviceSynchronize();
-    if (t == 1 || t % timeConfig::tInterval == 0)
+    if (t % timeConfig::tInterval == 0)
         writeOutput(mom_out, mom_host, grid, t, D2Q9::momByteSize, output::vtkPath);
 }
 

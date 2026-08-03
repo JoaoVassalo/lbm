@@ -4,9 +4,12 @@
 #include "../../config/CUDAConfig.cuh"
 #include "../../config/gridConfig.cuh"
 #include "../../config/momentConfig.cuh"
+#include "../../config/outputConfig.h"
 #include "../../config/stencilConfig.cuh"
 
 #include "../../core/indexing.cuh"
+
+#include "../../io/writeOutput.cuh"
 
 #include "initDomain.cuh"
 #include "initGrid.cuh"
