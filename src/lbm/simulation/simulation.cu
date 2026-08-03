@@ -5,7 +5,7 @@ __host__ void step(size_t t, varType *mom_in, varType *mom_out, varType *mom_hos
     streamCollide<<<blockNumber, block>>>(mom_in, mom_out, grid);
 
     cudaDeviceSynchronize();
-    if (t % timeConfig::tInterval == 0)
+    if (t == 1 || t % timeConfig::tInterval == 0)
         writeOutput(mom_out, mom_host, grid, t, D2Q9::momByteSize, output::vtkPath);
 }
 
@@ -13,7 +13,7 @@ __host__ void simulation(moments &sim, Grid2D &grid)
 {
     auto t1 = std::chrono::high_resolution_clock::now();
 
-    for (size_t t = 0; t < timeConfig::tf; t++)
+    for (size_t t = 1; t < timeConfig::tf; t++)
     {
         if (t & 1)
             step(t, sim.momA, sim.momB, sim.mom_host, grid);

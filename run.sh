@@ -2,7 +2,7 @@
 
 set -e
 
-NVCC=/usr/local/cuda/bin/nvcc
+NVCC=/usr/bin/nvcc
 
 SRC_DIR=src
 BUILD_DIR=build
