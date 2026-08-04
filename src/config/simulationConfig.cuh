@@ -13,7 +13,7 @@ namespace timeConfig
 
 namespace physics
 {
-    inline constexpr int Re = 10;
+    inline constexpr int Re = 1000;
     inline constexpr varType u_max = 0.0256f;
     inline constexpr int delta_t = 1;
     inline constexpr varType ni = u_max * (varType)Geometry::NY / (varType)Re;

@@ -163,7 +163,7 @@ __device__ void wallNorthwest(int x, int y, varType *mom_in, varType *mom_out, G
     mxyI /= rhoI;
     myyI /= rhoI;
 
-    varType ux = static_cast<varType>(physics::u_max);
+    varType ux = static_cast<varType>(0);
     varType uy = static_cast<varType>(0);
 
     varType rho = (static_cast<varType>(12) * (-static_cast<varType>(3) - static_cast<varType>(3) * mxxI - static_cast<varType>(7) * mxyI - static_cast<varType>(3) * myyI + static_cast<varType>(3) * mxxI * physics::omega + static_cast<varType>(7) * mxyI * physics::omega + static_cast<varType>(3) * myyI * physics::omega) * rhoI) /
@@ -223,7 +223,7 @@ __device__ void wallNortheast(int x, int y, varType *mom_in, varType *mom_out, G
     mxyI /= rhoI;
     myyI /= rhoI;
 
-    varType ux = static_cast<varType>(physics::u_max);
+    varType ux = static_cast<varType>(0);
     varType uy = static_cast<varType>(0);
 
     varType rho = (static_cast<varType>(12) * (-static_cast<varType>(3) * rhoI - static_cast<varType>(3) * mxxI * rhoI + static_cast<varType>(7) * mxyI * rhoI - static_cast<varType>(3) * myyI * rhoI + static_cast<varType>(3) * mxxI * physics::omega * rhoI - static_cast<varType>(7) * mxyI * physics::omega * rhoI + static_cast<varType>(3) * myyI * physics::omega * rhoI)) /
@@ -340,7 +340,7 @@ __device__ void wallNorth(int x, int y, varType *mom_in, varType *mom_out, Grid2
     mxyI /= rhoI;
     myyI /= rhoI;
 
-    varType ux = static_cast<varType>(physics::u_max);
+    varType ux = static_cast<varType>(0);
     varType uy = static_cast<varType>(0);
 
     varType rho = (static_cast<varType>(3) * (-static_cast<varType>(4) * rhoI - static_cast<varType>(3) * myyI * rhoI + static_cast<varType>(3) * myyI * physics::omega * rhoI)) /
@@ -350,7 +350,7 @@ __device__ void wallNorth(int x, int y, varType *mom_in, varType *mom_out, Grid2
     mom_out[momIdx<momId::ux>(index)] = ux;
     mom_out[momIdx<momId::uy>(index)] = uy;
     mom_out[momIdx<momId::mxx>(index)] = (static_cast<varType>(6) * mxxI * rhoI) / (static_cast<varType>(5) * rho);
-    mom_out[momIdx<momId::mxy>(index)] = -(-static_cast<varType>(6) * mxyI + rho * ux) / (static_cast<varType>(3) * rho);
+    mom_out[momIdx<momId::mxy>(index)] = -(-static_cast<varType>(6) * mxyI * rhoI + rho * ux) / (static_cast<varType>(3) * rho);
     mom_out[momIdx<momId::myy>(index)] = -(-rho - static_cast<varType>(9) * myyI * rhoI + static_cast<varType>(3) * rho * uy) / (static_cast<varType>(6) * rho);
 }
 

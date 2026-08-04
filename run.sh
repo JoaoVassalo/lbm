@@ -2,7 +2,12 @@
 
 set -e
 
-NVCC=/usr/local/cuda-13.1/bin/nvcc
+NVCC=$(command -v nvcc)
+
+if [ -z "$NVCC" ]; then
+    echo "Erro: nvcc não encontrado no PATH."
+    exit 1
+fi
 
 SRC_DIR=src
 BUILD_DIR=build

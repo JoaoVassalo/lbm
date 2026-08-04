@@ -13,7 +13,7 @@ __global__ void initGrid(maskType *mask, nodeType *node)
 
     maskType m = 0u;
 
-    for (int i = 0; i < D2Q9::Q; i++)
+    for (int i = 1; i < D2Q9::Q; i++)
     {
         int xn = x + D2Q9::cx(i);
         int yn = y + D2Q9::cy(i);
