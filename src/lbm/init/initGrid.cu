@@ -15,8 +15,8 @@ __global__ void initGrid(maskType *mask, nodeType *node)
 
     for (int i = 1; i < D2Q9::Q; i++)
     {
-        int xn = x + D2Q9::cx(i);
-        int yn = y + D2Q9::cy(i);
+        int xn = x - D2Q9::cx(i);
+        int yn = y - D2Q9::cy(i);
 
         if (xn < 0 || xn >= Geometry::NX ||
             yn < 0 || yn >= Geometry::NY)

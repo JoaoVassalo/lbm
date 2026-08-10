@@ -7,7 +7,7 @@
 namespace timeConfig
 {
     inline constexpr size_t tf = 1000;
-    inline constexpr size_t printNumber = 100;
+    inline constexpr size_t printNumber = 10;
     inline constexpr size_t tInterval = tf / printNumber;
 }
 
