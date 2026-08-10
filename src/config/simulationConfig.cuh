@@ -14,9 +14,9 @@ namespace timeConfig
 namespace physics
 {
     inline constexpr int Re = 1000;
-    inline constexpr varType u_max = 0.0256f;
-    inline constexpr int delta_t = 1;
-    inline constexpr varType ni = u_max * (varType)Geometry::NY / (varType)Re;
-    inline constexpr varType tau = ni * D2Q9::a_s2 + 0.5f;
-    inline constexpr varType omega = 1.0f / tau;
+    inline constexpr varType u_max = static_cast<varType>(0.0256);
+    inline constexpr varType delta_t = static_cast<varType>(1.0);
+    inline constexpr varType ni = u_max * static_cast<varType>(Geometry::NY) / static_cast<varType>(Re);
+    inline constexpr varType tau = ni * D2Q9::a_s2 + static_cast<varType>(0.5);
+    inline constexpr varType omega = static_cast<varType>(1.0) / tau;
 }

@@ -42,8 +42,8 @@ __host__ __device__ __forceinline__ int momIdx(int index)
 
 __device__ __forceinline__ int fromId(int x, int y, int i)
 {
-    int x_from = x - (int)D2Q9::cx(i);
-    int y_from = y - (int)D2Q9::cy(i);
+    int x_from = x + (int)D2Q9::cx(i);
+    int y_from = y + (int)D2Q9::cy(i);
 
     if (x_from < 0)
         x_from += Geometry::NX;
