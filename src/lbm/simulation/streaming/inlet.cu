@@ -46,8 +46,10 @@ __device__ void inletWest(int x, int y, varType *mom_in, varType *mom_out, Grid2
     varType ux = static_cast<varType>(physics::u_max);
     varType uy = static_cast<varType>(0);
 
-    varType rho = (-static_cast<varType>(4) * rhoI - static_cast<varType>(3) * mxxI * rhoI) /
-                  (static_cast<varType>(3) * (-static_cast<varType>(1) + ux));
+    // varType rho = (-static_cast<varType>(4) * rhoI - static_cast<varType>(3) * mxxI * rhoI) /
+    //               (static_cast<varType>(3) * (-static_cast<varType>(1) + ux));
+
+    varType rho = static_cast<varType>(1);
 
     mom_out[momIdx<momId::rho>(index)] = rho;
     mom_out[momIdx<momId::ux>(index)] = ux;
