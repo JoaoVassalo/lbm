@@ -28,11 +28,13 @@ __device__ void applyBoundary(varType *mom_in, varType *mom_out, Grid2D grid, in
     }
     else if (x == 0)
     { // Oeste
-        wallWest(x, y, mom_in, mom_out, grid, index);
+        // wallWest(x, y, mom_in, mom_out, grid, index);
+        inletWest(x, y, mom_in, mom_out, grid, index);
     }
     else if (x == Geometry::NX - 1)
     { // Leste
-        wallEast(x, y, mom_in, mom_out, grid, index);
+        // wallEast(x, y, mom_in, mom_out, grid, index);
+        outletEast(x, y, mom_in, mom_out, grid, index);
     }
     else
     { // Centro
