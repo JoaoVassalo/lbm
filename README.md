@@ -15,9 +15,7 @@ Solver bidimensional do método Lattice Boltzmann (LBM) desenvolvido em CUDA, co
 
 O código utiliza o stencil **D2Q9** e armazena seis variáveis por nó:
 
-\[
-(\rho, u_x, u_y, m_{xx}, m_{xy}, m_{yy}).
-\]
+rho, ux, uy, mxx, mxy, myy
 
 As distribuições são reconstruídas a partir desses momentos, seguidas pela etapa de streaming e colisão. A evolução utiliza dois buffers (`momA`/`momB`) em esquema ping-pong.
 
