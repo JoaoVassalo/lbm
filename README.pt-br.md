@@ -2,7 +2,7 @@
 
 # LBM-CUDA
 
-Solver bidimensional do método Lattice Boltzmann (LBM) desenvolvido em CUDA, com armazenamento baseado em momentos e execução paralela na GPU.
+Solver bidimensional do método Lattice Boltzmann (LBM) desenvolvido em CUDA, com armazenamento baseado em momentos e execução paralela na GPU. Este é meu repositório mais recente e o principal foco do meu desenvolvimento atual, além de outros projetos nos quais colaboro.
 
 ## Estrutura
 
