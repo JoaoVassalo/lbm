@@ -18,9 +18,7 @@ Two-dimensional Lattice Boltzmann Method (LBM) solver developed in CUDA, using m
 
 The code uses the **D2Q9** stencil and stores six variables per node:
 
-\[
-(\rho, u_x, u_y, m_{xx}, m_{xy}, m_{yy}).
-\]
+rho, ux, uy, mxx, mxy, myy
 
 The distributions are reconstructed from these moments, followed by the streaming and collision steps. The simulation uses two buffers (`momA`/`momB`) in a ping-pong scheme.
 
