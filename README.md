@@ -1,51 +1,32 @@
+[🇧🇷 Português](README.pt-br.md)
+
+
 # LBM-CUDA
 
-Solver bidimensional do método Lattice Boltzmann (LBM) desenvolvido em CUDA, com armazenamento baseado em momentos e execução paralela na GPU.
+Two-dimensional Lattice Boltzmann Method (LBM) solver developed in CUDA, using moment-based storage and parallel execution on the GPU.
 
-## Estrutura
+## Structure
 
-- `src/config/` — parâmetros de geometria, stencil D2Q9, momentos, física e tempo.
-- `src/lbm/init/` — inicialização do domínio e da malha.
-- `src/lbm/simulation/` — streaming, reconstrução das distribuições e colisão.
-- `src/io/` — escrita dos resultados em VTK e cálculo de desempenho.
-- `src/core/` — indexação e tipos auxiliares.
-- `run.sh` — compila e executa o solver.
+- `src/config/` — geometry, D2Q9 stencil, moments, physics, and time parameters.
+- `src/lbm/init/` — domain and lattice initialization.
+- `src/lbm/simulation/` — streaming, distribution reconstruction, and collision.
+- `src/io/` — VTK output and performance measurements.
+- `src/core/` — indexing and auxiliary types.
+- `run.sh` — compiles and runs the solver.
 
-## Método
+## Method
 
-O código utiliza o stencil **D2Q9** e armazena seis variáveis por nó:
+The code uses the **D2Q9** stencil and stores six variables per node:
 
-rho, ux, uy, mxx, mxy, myy
+\[
+(\rho, u_x, u_y, m_{xx}, m_{xy}, m_{yy}).
+\]
 
-As distribuições são reconstruídas a partir desses momentos, seguidas pela etapa de streaming e colisão. A evolução utiliza dois buffers (`momA`/`momB`) em esquema ping-pong.
+The distributions are reconstructed from these moments, followed by the streaming and collision steps. The simulation uses two buffers (`momA`/`momB`) in a ping-pong scheme.
 
-## Execução
+## Execution
 
-É necessário ter o `nvcc` disponível no `PATH`.
+`nvcc` must be available in the `PATH`.
 
 ```bash
 bash run.sh
-```
-
-O script compila os arquivos `.cu` com C++20 e gera o executável em `build/debug`.
-
-Os resultados são escritos em arquivos `.vti` em:
-
-```text
-results/plot/vtk/
-```
-
-Eles podem ser visualizados no ParaView.
-
-## Configuração
-
-Os principais parâmetros atualmente estão em `src/config/`, incluindo:
-
-- tamanho do domínio;
-- número de Reynolds;
-- velocidade característica;
-- viscosidade, `tau` e `omega`;
-- parâmetros do D2Q9;
-- intervalo e número de iterações.
-
-Este repositório corresponde ao estado atual de desenvolvimento do solver, portanto a estrutura e os modelos podem evoluir conforme novas formulações e condições de contorno forem adicionadas.
