@@ -26,8 +26,12 @@ __device__ void applyBoundary(varType *mom_in, varType *mom_out, Grid2D grid, in
     { // Norte
         wallNorth(x, y, mom_in, mom_out, grid, index);
     }
+    // else if (x == 0 && (y <= (Geometry::NY * 1 / 4) || y >= (Geometry::NY * 3 / 4)))
+    // { // Oeste PAREDE
+    //     wallWest(x, y, mom_in, mom_out, grid, index);
+    // }
     else if (x == 0)
-    { // Oeste
+    { // Oeste JATO
         // wallWest(x, y, mom_in, mom_out, grid, index);
         inletWest(x, y, mom_in, mom_out, grid, index);
     }

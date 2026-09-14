@@ -6,14 +6,14 @@
 
 namespace timeConfig
 {
-    inline constexpr size_t tf = 1000000;
+    inline constexpr size_t tf = 20000000;
     inline constexpr size_t printNumber = 10;
     inline constexpr size_t tInterval = tf / printNumber;
 }
 
 namespace physics
 {
-    inline constexpr int Re = 1000;
+    inline constexpr int Re = 4000;
     inline constexpr varType u_max = static_cast<varType>(0.0256);
     inline constexpr varType delta_t = static_cast<varType>(1.0);
     inline constexpr varType ni = u_max * static_cast<varType>(Geometry::NY) / static_cast<varType>(Re);
