@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../../../config/config.h"
+#include "../../../config/gridConfig.cuh"
 #include "../../../config/momentConfig.cuh"
 #include "../../../config/simulationConfig.cuh"
 #include "../../../config/stencilConfig.cuh"
